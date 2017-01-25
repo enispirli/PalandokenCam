@@ -3,7 +3,14 @@
         <div class="row-fluid">
             <div class="span-12 inner">
                 <?php if ($this->session->flashdata('sonuc')) { ?>
-                    <div class="alert alert-success fade in alert-dismissable" style="margin-top:18px;">
+                    <div class="alert 
+                          <?php if($this->session->flashdata('error') == true){ ?>
+                         alert-error
+                         <?php }?>
+                         <?php if($this->session->flashdata('error') == false){ ?>
+                         alert-success
+                         <?php }?>
+                         fade in alert-dismissable" style="margin-top:18px;">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
                         <?= $this->session->flashdata('sonuc') ?>
                     </div>

@@ -9,7 +9,7 @@
                     </div>
                 <?php } ?>
                 <div class="box dark">
-                    <header><h5>KATEGORİ LİSTELE</h5></header>
+                    <header><h5>ÜRÜNLERİ LİSTELE</h5></header>
                     <div class="accordion-body collapse in body">
                         <div id="actionTable" class="body collapse in">
                             <table class="table table-bordered responsive">

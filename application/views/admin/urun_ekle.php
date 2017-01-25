@@ -17,7 +17,7 @@ and open the template in the editor.
                 <div class="box dark">
                     <header><h5>ÜRÜN EKLEME</h5></header>
                     <div class="accordion-body collapse in body">
-                        <form class="form-horizontal" action="<?= base_url()?>admin/UrunEkle/ekle" method="post">
+                        <form class="form-horizontal" enctype="multipart/form-data" action="<?= base_url() ?>admin/UrunEkle/ekle" method="post">
                             <div class="control-group">
                                 <label for="urunAdi" class="control-label">Ürün Adı</label>
                                 <div class="controls with-tooltip">
@@ -27,7 +27,8 @@ and open the template in the editor.
                             <div class="control-group">
                                 <label for="urunAciklama" class="control-label">Ürün Açıklaması</label>
                                 <div class="controls with-tooltip">
-                                    <input type="text" id="urunAciklama" name="urunAciklama" class="span6 input-tooltip" data-placement="bottom">
+                                   
+                                    <textarea class="tiny-editor" id="urunAciklama" name="urunAciklama"  ></textarea> <!--tampon-->
                                 </div>
                             </div>
                             <div class="control-group">
@@ -43,7 +44,13 @@ and open the template in the editor.
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="submit" class="btn btn-dft">
+                                <label class="control-label">Resimler</label>
+                                <div class="controls">
+                                    <input type="file" class="btn btn-dft" name="usr_files[]" multiple/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <input type="submit" class="btn btn-dft" id="urunEkleButton" />
                             </div>
                         </form>
                     </div>

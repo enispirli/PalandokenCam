@@ -17,12 +17,20 @@ class KategoriListele extends CI_Controller {
         $this->load->view('admin/kategori_listele', $param);
         $this->load->view('admin/footer');
     }
-
+    //$id silinen kategorinin idsi
     public function sil($id) {
         $this->load->model('admin/database_model');
-        $this->database_model->delete("kategori", $id);
-        $this->session->set_flashdata("sonuc", "Kategori silme işlemi başarıyla tamamlandı");
-        redirect(base_url() . "admin/KategoriListele");
+        $urunList = $this->database_model->getByColumn("urun", "kategori_id", $id);
+        if (count($urunList) > 0) {
+            $this->session->set_flashdata("sonuc", "Bu kategoriye ait ürün olduğundan dolayı silinemedi");
+            $this->session->set_flashdata("error", true);
+            redirect(base_url() . "admin/KategoriListele");
+        } else {
+            $this->database_model->delete("kategori", $id);
+            $this->session->set_flashdata("sonuc", "Kategori silme işlemi başarıyla tamamlandı");
+            $this->session->set_flashdata("error", false);
+            redirect(base_url() . "admin/KategoriListele");
+        }
     }
 
     public function duzenle($id) {
@@ -40,9 +48,10 @@ class KategoriListele extends CI_Controller {
             'id' => $this->input->post('kategoriId'),
             'isim' => $this->input->post('kategoriAdi')
         );
-        $this->database_model->update("kategori",$data);
+        $this->database_model->update("kategori", $data);
         $this->session->set_flashdata("sonuc", "Kategori düzenleme işlemi başarıyla tamamlandı");
-        redirect(base_url()."admin/KategoriListele");
+        $this->session->set_flashdata("error", false);
+        redirect(base_url() . "admin/KategoriListele");
     }
 
 }

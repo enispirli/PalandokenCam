@@ -12,7 +12,7 @@
     <meta name="keywords" content="">
 
     <title>
-        Obaju : e-commerce template
+      <?=$title?>
     </title>
 
     <meta name="keywords" content="">
@@ -20,19 +20,19 @@
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
 
     <!-- styles -->
-    <link href="<?=base_url()?>assets/admin/css/font-awesome.css" rel="stylesheet">
-    <link href="<?=base_url()?>assets/admin/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?=base_url()?>assets/admin/css/animate.min.css" rel="stylesheet">
-    <link href="<?=base_url()?>assets/admin/css/owl.carousel.css" rel="stylesheet">
-    <link href="<?=base_url()?>assets/admin/css/owl.theme.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/normal/css/font-awesome.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/normal/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/normal/css/animate.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/normal/css/owl.carousel.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/normal/css/owl.theme.css" rel="stylesheet">
 
     <!-- theme stylesheet -->
-    <link href="<?=base_url()?>assets/admin/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+    <link href="<?=base_url()?>assets/normal/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
 
     <!-- your stylesheet with modifications -->
-    <link href="<?=base_url()?>assets/admin/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/normal/css/custom.css" rel="stylesheet">
 
-    <script src="js/respond.min.js"></script>
+    <script src="<?=base_url()?>assets/normal/js/respond.min.js"></script>
 
     <link rel="shortcut icon" href="favicon.png">
 
@@ -46,18 +46,31 @@
  _________________________________________________________ -->
     <div id="top">
         <div class="container">
-            <div class="col-md-6 offer" data-animate="fadeInDown">
-                <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $50!</a>
+            <div class="col-md-6 offer" >
+              
             </div>
             <div class="col-md-6" data-animate="fadeInDown">
                 <ul class="menu">
-                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                     <?php
+                      if (!isset($this->session->userdata['logged_in'])) {
+        
+              ?>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Giriş</a>
                     </li>
-                    <li><a href="register.html">Register</a>
+                     <li><a href="<?= base_url()?>normal/kayitol">Kayıt Ol</a>
                     </li>
-                    <li><a href="contact.html">Contact</a>
+                      <?php } else{?>  
+                    <li style='color:white;'>Hoşgeldin <b><?=$this->session->userdata['logged_in']['ad'] . " ".$this->session->userdata['logged_in']['soyad'] ?></b>
                     </li>
-                    <li><a href="#">Recently viewed</a>
+                     <li><a href="<?= base_url()?>normal/giris/cikisyap">Çıkış</a>
+                    </li>
+                      <?php } ?>
+                    <li><a href="<?= base_url()?>normal/Hakkimizda">Hakkımızda</a>      
+                    </li>
+                    <li><a href="<?= base_url()?>normal/Iletisim">İletişim</a>
+                    </li>
+                   
+                    <li><a href="<?= base_url()?>normal/Sorular">Sık Sorulan Sorular</a>
                     </li>
                 </ul>
             </div>
@@ -66,27 +79,27 @@
             <div class="modal-dialog modal-sm">
 
                 <div class="modal-content">
-                    <div class="modal-header">
+                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="Login">Customer login</h4>
+                        <h4 class="modal-title" id="Login">Müşteri Giriş</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="customer-orders.html" method="post">
+                        <form action="<?= base_url()?>normal/giris/girisyap" method="post">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="email-modal" placeholder="email">
+                                <input type="text" class="form-control" name="musteriGirisMail" placeholder="E-mail">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password-modal" placeholder="password">
+                                <input type="password" class="form-control" name="musteriGirisParola" placeholder="Parola">
                             </div>
 
                             <p class="text-center">
-                                <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                                <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Giriş Yap</button>
                             </p>
 
                         </form>
-
-                        <p class="text-center text-muted">Not registered yet?</p>
-                        <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+                        <p class="text-center">
+                            <a href="<?= base_url()?>normal/kayitol">Kayıt Ol</a>
+                         </p>
 
                     </div>
                 </div>

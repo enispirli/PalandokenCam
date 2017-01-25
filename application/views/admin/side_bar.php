@@ -38,19 +38,44 @@
             </ul>
         </li>
         <li class="accordion-group ">
-            <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#siparis-nav">
-                Sipariş İşlemleri
+            <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#slider-nav">
+                Slider İşlemleri
             </a>
-            <ul class="collapse " id="siparis-nav">
-                <li><a href="form-general.html">Yeni Siparişler</a></li>
-                <li><a href="form-validation.html">Sipariş Arşivi</a></li>
+            <ul class="collapse " id="slider-nav">
+                <li><a href="<?= base_url() ?>admin/SliderListele">Slider Listeleme</a></li>
+                <li><a href="<?= base_url() ?>admin/SliderEkle">Slider Ekleme</a></li>
+
             </ul>
+        </li>
+        <li class="accordion-group ">
+            <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#sorular-nav">
+                Sık Sık Sorulan Sorular
+            </a>
+            <ul class="collapse " id="sorular-nav">
+                <li><a href="<?= base_url() ?>admin/SorularListele">Listele</a></li>
+                <li><a href="<?= base_url() ?>admin/SorularEkle">Ekleme</a></li>
 
-        <li><a href="form-validation.html">Mesajlar<span class="label label-inverse pull-right">4</span></a></li>
+            </ul>
+        </li>
+        
+                <li class="accordion-group active">
+                    <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#ayarlar-nav">
+                        Ayarlar
+                    </a>
+                    <ul class="collapse" id="ayarlar-nav">
+                        <li ><a href="<?= base_url() ?>admin/IletisimDuzenle" id="iletisimDuzenleAc">İletişim İçeriği Düzenle</a></li>
+                        <li><a href="<?= base_url() ?>admin/HakkimizdaDuzenle">Hakkımızda Düzenle</a></li>
+                         <li><a href="<?= base_url() ?>admin/AdresDuzenle">Adres Düzenle</a></li>
+                          <li><a href="<?= base_url() ?>admin/EmailDuzenle">Email Düzenle</a></li>
+                           <li><a href="<?= base_url() ?>admin/TelDuzenle">Telefon Numarası Düzenle</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?= base_url() ?>admin/Mesajlar">Mesajlar<span class="label label-inverse pull-right"></span></a></li>
 
 
 
-        <!-- END MAIN NAVIGATION -->
+                <!-- END MAIN NAVIGATION -->
 
-</div>
-<!-- END LEFT -->
+                </div>
+                <!-- END LEFT -->

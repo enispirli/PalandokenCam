@@ -20,9 +20,17 @@ class SirketListele extends CI_Controller {
 
     public function sil($id) {
         $this->load->model('admin/database_model');
-        $this->database_model->delete("sirket", $id);
-        $this->session->set_flashdata("sonuc", "Şirket silme işlemi başarıyla tamamlandı");
-        redirect(base_url() . "admin/SirketListele");
+        $musteriList = $this->database_model->getByColumn("musteri", "sirket_id", $id);
+        if (count($musteriList) > 0) {
+            $this->session->set_flashdata("error", true);
+            $this->session->set_flashdata("sonuc", "Bu şirkete kayıtlı müşteri olduğundan şirket silinemedi.");
+            redirect(base_url() . "admin/SirketListele");
+        } else {
+            $this->database_model->delete("sirket", $id);
+            $this->session->set_flashdata("error", false);
+            $this->session->set_flashdata("sonuc", "Şirket silme işlemi başarıyla tamamlandı");
+            redirect(base_url() . "admin/SirketListele");
+        }
     }
 
     public function duzenle($id) {
@@ -40,9 +48,10 @@ class SirketListele extends CI_Controller {
             'id' => $this->input->post('sirketId'),
             'ismi' => $this->input->post('sirketAdi')
         );
-        $this->database_model->update("sirket",$data);
+        $this->database_model->update("sirket", $data);
+        $this->session->set_flashdata("error", false);
         $this->session->set_flashdata("sonuc", "Şirket düzenleme işlemi başarıyla tamamlandı");
-        redirect(base_url()."admin/SirketListele");
+        redirect(base_url() . "admin/SirketListele");
     }
 
 }

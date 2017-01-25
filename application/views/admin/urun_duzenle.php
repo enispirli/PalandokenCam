@@ -15,7 +15,7 @@ and open the template in the editor.
                     </div>
                 <?php } ?>
                 <div class="box dark">
-                    <header><h5>ÜRÜN EKLEME</h5></header>
+                    <header><h5>Ürün Düzenleme</h5></header>
                     <div class="accordion-body collapse in body">
                         <form class="form-horizontal" action="<?= base_url() ?>admin/UrunListele/guncelle" method="post">
                             <input type="hidden" name="urunId" id="urunId" value="<?= $urun->id ?>" />
@@ -28,7 +28,7 @@ and open the template in the editor.
                             <div class="control-group">
                                 <label for="urunAciklama" class="control-label">Ürün Açıklaması</label>
                                 <div class="controls with-tooltip">
-                                    <input type="text" id="urunAciklama" name="urunAciklama" class="span6 input-tooltip" data-placement="bottom" value="<?= $urun->aciklama ?>">
+                                    <textarea class="tiny-editor" id="urunAciklama" name="urunAciklama" class="span6 input-tooltip" type="text" value="<?= $urun->aciklama ?>"></textarea>
                                 </div>
                             </div>
                             <div class="control-group">
