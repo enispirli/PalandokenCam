@@ -13,9 +13,14 @@ class Home extends CI_Controller {
     public function index() {
         $this->load->model('admin/database_model');
         $param['sliderlar'] = $this->database_model->getList("slider");
-        $param['urunler'] = $this->database_model->db->query("select u.id, u.ismi, r.yol from urun u, resim r where r.urun_id=u.id GROUP BY u.id LIMIT 8")->result();
+        $kategoriler = $this->database_model->getList('kategori');
+        $kategoriUrunleri = array();
+        foreach($kategoriler as $kategori){
+            $kategoriUrunleri[$kategori->isim] = $this->database_model->getByColumn('urun', 'kategori_id', $kategori->id);
+        }
+        $headerParam ['kategoriUrunler'] = $kategoriUrunleri; 
         $this->load->view('normal/navbar');
-        $this->load->view('normal/header');
+        $this->load->view('normal/header', $headerParam);
         $this->load->view('normal/content', $param);
         $this->load->view('normal/footer');
         $this->load->view('normal/fix');

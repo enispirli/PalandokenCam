@@ -11,21 +11,21 @@
                     </li>
                     <li class="dropdown yamm-fw">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">ÜRÜNLER <b class="caret"></b></a>
-                        <ul class="dropdown-menu" style="width: 250px;  margin-left: 135px">
+                        <ul class="dropdown-menu" >
                             <li>
                                 <div class="yamm-content">
                                     <div class="row">
-                                        <div class="col-sm-3">
-                                            <h5>lçscşd</h5>
-                                            <ul>
-                                                <li><a href="category.html">T-shirts</a>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-
-
-
+                                        <?php while ($kategori = key($kategoriUrunler)) { ?>
+                                            <div class="col-sm-5">
+                                                <h5><?= $kategori ?></h5>
+                                                <ul>
+                                                    <?php foreach (current($kategoriUrunler) as $urun) { ?>
+                                                        <li><a href="<?= base_url() ?>normal/urun/<?= $urun->id ?>"><?= $urun->ismi ?></a>
+                                                        </li>
+                                                    <?php } next($kategoriUrunler); ?>
+                                                </ul>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <!-- /.yamm-content -->
@@ -40,16 +40,16 @@
                                 <div class="yamm-content">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                         
+
                                             <ul>
-                                                <li><a href="<?= base_url()?>normal/Hakkimizda">Hakkımızda</a>
+                                                <li><a href="<?= base_url() ?>normal/Hakkimizda">Hakkımızda</a>
                                                 </li>
                                                 <li><a href="category.html">Sertifikalarımız</a>
                                                 </li>
                                                 <li><a href="category.html">Misyon & Vizyon</a>
                                                 </li>
-                                                
-                                                
+
+
                                             </ul>
                                         </div>
                                     </div>
@@ -59,12 +59,12 @@
                     </li>
                     <li>
                         <a href="#">REFERANSLAR</a>
-                       
+
                     </li>
                     <li >
-                        <a href="<?= base_url()?>normal/Iletisim" >İLETİŞİM </a>
-                       
-                        
+                        <a href="<?= base_url() ?>normal/Iletisim" >İLETİŞİM </a>
+
+
                     </li>
 
                 </ul>
