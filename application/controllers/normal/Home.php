@@ -2,26 +2,20 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends BaseController {
 
     function _construct() {
         parent::_construct();
-
         $this->load->helper('url');
     }
 
     public function index() {
         $this->load->model('admin/database_model');
         $param['sliderlar'] = $this->database_model->getList("slider");
-        $param['urunler']= $this->database_model->getList("urun");
-        $kategoriler = $this->database_model->getList('kategori');
-        $kategoriUrunleri = array();
-        foreach($kategoriler as $kategori){
-            $kategoriUrunleri[$kategori->isim] = $this->database_model->getByColumn('urun', 'kategori_id', $kategori->id);
-        }
-        $this->config->set_item("kategoriUrunleri", $kategoriUrunleri); 
+        $param['urunler'] = $this->database_model->getList("urun");
+        $this->getKategoriUrunleri();
         $this->load->view('normal/navbar');
-        $this->load->view('normal/header');
+        $this->load->view('normal/header', $this->headerParam);
         $this->load->view('normal/content', $param);
         $this->load->view('normal/footer');
         $this->load->view('normal/fix');

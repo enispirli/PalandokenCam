@@ -15,15 +15,15 @@
                             <li>
                                 <div class="yamm-content">
                                     <div class="row">
-                                     <?php $kategoriUrunler=$this->config->item("kategoriUrunleri");
-                                         while ($kategori = key($kategoriUrunler)) { ?>
+                                        <?php 
+                                        while ($kategori = key($kategoriUrunleri)) { ?>
                                             <div class="col-sm-5">
                                                 <h5><?= $kategori ?></h5>
                                                 <ul>
-                                                    <?php foreach (current($kategoriUrunler) as $urun) { ?>
+                                                    <?php foreach (current($kategoriUrunleri) as $urun) { ?>
                                                         <li><a href="<?= base_url() ?>normal/urun/<?= $urun->id ?>"><?= $urun->ismi ?></a>
                                                         </li>
-                                                    <?php } next($kategoriUrunler); ?>
+                                                    <?php } next($kategoriUrunleri); ?>
                                                 </ul>
                                             </div>
                                         <?php } ?>
