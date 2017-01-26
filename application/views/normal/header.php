@@ -15,7 +15,8 @@
                             <li>
                                 <div class="yamm-content">
                                     <div class="row">
-                                        <?php while ($kategori = key($kategoriUrunler)) { ?>
+                                     <?php $kategoriUrunler=$this->config->item("kategoriUrunleri");
+                                         while ($kategori = key($kategoriUrunler)) { ?>
                                             <div class="col-sm-5">
                                                 <h5><?= $kategori ?></h5>
                                                 <ul>
@@ -44,13 +45,13 @@
                                             <ul>
                                                 <li><a href="<?= base_url() ?>normal/Hakkimizda">Hakkımızda</a>
                                                 </li>
-                                                <li><a href="category.html">Sertifikalarımız</a>
+                                                <li><a href="<?= base_url() ?>normal/Sertifika">Sertifikalarımız</a>
                                                 </li>
-                                                <li><a href="category.html">Misyon & Vizyon</a>
+                                                <li><a href="category.html">Kalite Politikamız</a>
                                                 </li>
 
 
-                                            </ul>
+                                          </ul>
                                         </div>
                                     </div>
                                 </div>
