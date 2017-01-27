@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class UrunListeleme extends CI_Controller {
+class UrunListeleme extends BaseController {
 
 	 function _construct()
 	{
@@ -19,7 +19,7 @@ class UrunListeleme extends CI_Controller {
                 $param['urunler'] = $this->database_model->db->query("select u.id, u.ismi, r.yol from urun u, resim r where r.urun_id=u.id GROUP BY u.id")->result();
 		 $param['baslik'] ="Tüm Ürünler";
                 $this->load->view('normal/navbar');
-		$this->load->view('normal/header');
+		$this->load->view('normal/header',$this->headerParam);
                 $this->load->view('normal/leftbar',$paramKategori);
 		$this->load->view('normal/listeleme',$param);
 		$this->load->view('normal/footer');
@@ -36,7 +36,7 @@ class UrunListeleme extends CI_Controller {
                 $param['urunler'] = $this->database_model->db->query("select u.id, u.ismi, r.yol from urun u, resim r where r.urun_id=u.id && u.kategori_id=? GROUP BY u.id", $kid)->result();
 		 $param['baslik'] =$this->database_model->get("kategori", $kid)[0]->isim. " Ürünleri";
                 $this->load->view('normal/navbar');
-		$this->load->view('normal/header');
+		$this->load->view('normal/header',$this->headerParam);
                 $this->load->view('normal/leftbar',$paramKategori);
 		$this->load->view('normal/listeleme',$param);
 		$this->load->view('normal/footer');

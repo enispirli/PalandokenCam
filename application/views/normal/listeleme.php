@@ -17,7 +17,7 @@
                                             </a>
                                         </div>
                                         <div class="back">
-                                            <a href="detail.html">
+                                            <a href="<?=base_url()?>normal/urun/<?= $urun->id ?>">
                                                 <img src="<?=base_url()?>uploads/<?= $urun->yol  ?>" alt="" class="img-responsive urun-liste">
                                             </a>
                                         </div>
@@ -31,7 +31,7 @@
                                    
                                     <p class="buttons">
                                         <a href="<?=base_url()?>normal/urun/<?= $urun->id ?>" class="btn btn-default">Göster</a>
-                                        <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
+                                        
                                     </p>
                                 </div>
                                 <!-- /.text -->

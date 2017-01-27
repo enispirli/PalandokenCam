@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Iletisim extends CI_Controller {
+class Iletisim extends BaseController {
 
     function _construct() {
         parent::_construct();
@@ -17,7 +17,7 @@ class Iletisim extends CI_Controller {
         $param['mail'] =  $this->database_model->getByColumn("ayarlar", "isim", "mail")[0];
         $param['tel'] =  $this->database_model->getByColumn("ayarlar", "isim", "tel")[0];
         $this->load->view('normal/navbar');
-        $this->load->view('normal/header');
+        $this->load->view('normal/header',$this->headerParam);
         $this->load->view('normal/iletisim',$param);
         $this->load->view('normal/footer');
         $this->load->view('normal/fix');

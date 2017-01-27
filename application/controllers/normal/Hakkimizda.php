@@ -15,6 +15,7 @@ class Hakkimizda extends BaseController {
         $param['hakkimizda'] = $this->database_model->get("ayarlar", 2)[0];
         $this->load->view('normal/navbar');
         $this->load->view('normal/header', $this->headerParam);
+          $this->load->view('normal/leftbarKurumsal');
         $this->load->view('normal/hakkimizda', $param);
         $this->load->view('normal/footer');
         $this->load->view('normal/fix');

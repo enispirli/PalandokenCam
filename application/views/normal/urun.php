@@ -10,19 +10,7 @@
                        
 
                         </div>
-                        <div class="col-sm-6">
-                            <div class="box">
-                                <h1 class="text-center"><?= $urun->ismi  ?></h1>
-                                <p class="goToDescription"><a href="#details" class="scroll-to">Detaylar için lütfen tıklayınız</a>
-                                </p>
-
-                                <p class="text-center buttons">
-                                    <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Sepete Ekle</a> 
-                                    <a href="basket.html" class="btn btn-default"><i class="fa fa-heart"></i> İstek Listesine ekle</a>
-                                </p>
-
-
-                            </div>
+                        
 
                             <div class="row" id="thumbs">
                                 
@@ -37,14 +25,16 @@
                         </div>
 
                     </div>
-
-
+            <div class="col-md-12">
+                
                     <div class="box" id="details">
                         <p>
-                            <h4>Ürün Detayları</h4>
+                        <h4> <?= $urun->ismi ?></h4>
                             <?= $urun->aciklama  ?>
                            
-                            </blockquote>
+                           
+             
+                    </blockquote>
 
                             <hr>
                             <div class="social">
@@ -58,6 +48,6 @@
                             </div>
                     </div>
 
-
+            </div>
             
-                </div>
+                

@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Urun extends CI_Controller {
+class Urun extends BaseController {
 
     function _construct() {
         parent::_construct();
@@ -20,7 +20,7 @@ class Urun extends CI_Controller {
         $param['urun'] = $this->database_model->get("urun", $id)[0];
         $param['resimler'] = $this->database_model->getByColumn("resim", "urun_id", $id);
         $this->load->view('normal/navbar');
-         $this->load->view('normal/header');
+         $this->load->view('normal/header',$this->headerParam);
         $this->load->view('normal/leftbar', $paramKategori);
         $this->load->view('normal/urun', $param);
         $this->load->view('normal/footer');
