@@ -47,7 +47,7 @@
                                                 </li>
                                                 <li><a href="<?= base_url() ?>normal/Sertifika">Sertifikalarımız</a>
                                                 </li>
-                                                <li><a href="category.html">Kalite Politikamız</a>
+                                                <li><a href="<?=base_url()?>normal/Kalite">Kalite Politikamız</a>
                                                 </li>
 
 

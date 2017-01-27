@@ -1,4 +1,3 @@
-
 <div class="col-md-9">
 
 
@@ -7,7 +6,7 @@
     <div class="row" id="productMain">
         <div class="col-sm-12">
             <div id="mainImage">
-                <img src="<?= base_url() ?>uploads/sertifikalarimiz-2.jpg" alt="" class="img-responsive">
+                <img src="<?= base_url() ?>uploads/kalite-politikamiz.jpg" alt="" class="img-responsive">
             </div>
 
 
@@ -20,16 +19,15 @@
     <div class="box" id="details">
         <div class="sertifikalar">
             <p>
-            <h4>SERTİFİKALARIMIZ</h4>
-            <?php foreach ($sertifikalar as $sertifika) { ?>
+            <h4>KALİTE POLİTİKAMIZ  </h4>
+        
                 <p>
-                    <a href="<?= base_url() ?>uploads/<?=$sertifika->dosya_ismi?>">
-                        <img src="<?= base_url() ?>uploads/<?=$sertifika->yol?>"> &nbsp; &nbsp; &nbsp;
-                    <?=$sertifika->isim?>
+                   
+                    <?=$kalitemiz->icerik?>
                 </a>
             </p>
 
-            <?php } ?>
+     
         </div>
 
         <div class="social">

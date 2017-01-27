@@ -78,7 +78,7 @@
                 <li><a href="<?= base_url() ?>admin/AdresDuzenle">Adres Düzenle</a></li>
                 <li><a href="<?= base_url() ?>admin/EmailDuzenle">Email Düzenle</a></li>
                 <li><a href="<?= base_url() ?>admin/TelDuzenle">Telefon Numarası Düzenle</a></li>
-                <li><a href="<?= base_url() ?>admin/SertifikaDuzenle">Sertifika E</a></li>
+                <li><a href="<?= base_url() ?>admin/KalitemizDuzenle">Kalite Politika Düzenle</a></li>
     </ul>
 </li>
 <li>
