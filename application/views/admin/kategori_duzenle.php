@@ -9,7 +9,7 @@ and open the template in the editor.
         <div class="row-fluid">
             <div class="span-12 inner">
                 <div class="box dark">
-                    <header><h5>KATEGORİ EKLE</h5></header>
+                    <header><h5>KATEGORİ DÜZENLE</h5></header>
                     <div class="accordion-body collapse in body">
                         <form class="form-horizontal" action="<?= base_url()?>admin/KategoriListele/guncelle" method="post">
                             <input type="hidden" name="kategoriId" id="kategoriId" value="<?=$kategori->id?>" />

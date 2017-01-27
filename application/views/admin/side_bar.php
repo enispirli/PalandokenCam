@@ -57,25 +57,36 @@
 
             </ul>
         </li>
-        
-                <li class="accordion-group active">
-                    <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#ayarlar-nav">
-                        Ayarlar
-                    </a>
-                    <ul class="collapse" id="ayarlar-nav">
-                        <li ><a href="<?= base_url() ?>admin/IletisimDuzenle" id="iletisimDuzenleAc">İletişim İçeriği Düzenle</a></li>
-                        <li><a href="<?= base_url() ?>admin/HakkimizdaDuzenle">Hakkımızda Düzenle</a></li>
-                         <li><a href="<?= base_url() ?>admin/AdresDuzenle">Adres Düzenle</a></li>
-                          <li><a href="<?= base_url() ?>admin/EmailDuzenle">Email Düzenle</a></li>
-                           <li><a href="<?= base_url() ?>admin/TelDuzenle">Telefon Numarası Düzenle</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="<?= base_url() ?>admin/Mesajlar">Mesajlar<span class="label label-inverse pull-right"></span></a></li>
+
+        <li class="accordion-group ">
+            <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#sertifika-nav">
+                Sertifika İşlemleri
+            </a>
+            <ul class="collapse " id="sertifika-nav">
+                <li><a href="<?= base_url() ?>admin/SertifikaListele">Listele</a></li>
+                <li><a href="<?= base_url() ?>admin/SertifikaEkle">Ekleme</a></li>
+
+            </ul>
+        </li>
+        <li class="accordion-group active">
+            <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#ayarlar-nav">
+                Ayarlar
+            </a>
+            <ul class="collapse" id="ayarlar-nav">
+                <li ><a href="<?= base_url() ?>admin/IletisimDuzenle" id="iletisimDuzenleAc">İletişim İçeriği Düzenle</a></li>
+                <li><a href="<?= base_url() ?>admin/HakkimizdaDuzenle">Hakkımızda Düzenle</a></li>
+                <li><a href="<?= base_url() ?>admin/AdresDuzenle">Adres Düzenle</a></li>
+                <li><a href="<?= base_url() ?>admin/EmailDuzenle">Email Düzenle</a></li>
+                <li><a href="<?= base_url() ?>admin/TelDuzenle">Telefon Numarası Düzenle</a></li>
+                <li><a href="<?= base_url() ?>admin/SertifikaDuzenle">Sertifika E</a></li>
+    </ul>
+</li>
+<li>
+    <a href="<?= base_url() ?>admin/Mesajlar">Mesajlar<span class="label label-inverse pull-right"></span></a></li>
 
 
 
-                <!-- END MAIN NAVIGATION -->
+<!-- END MAIN NAVIGATION -->
 
-                </div>
-                <!-- END LEFT -->
+</div>
+<!-- END LEFT -->

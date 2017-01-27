@@ -2,22 +2,24 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends BaseController {
+class Sertifika extends CI_Controller {
 
     function _construct() {
         parent::_construct();
+
         $this->load->helper('url');
     }
 
     public function index() {
         $this->load->model('admin/database_model');
-        $param['sliderlar'] = $this->database_model->getList("slider");
-        $param['urunler'] = $this->database_model->getList("urun");
+         $param['sertifikalar'] = $this->database_model->getList("sertifika");
         $this->load->view('normal/navbar');
-        $this->load->view('normal/header', $this->headerParam);
-        $this->load->view('normal/content', $param);
+        $this->load->view('normal/header');
+        $this->load->view('normal/sertifika',$param);
         $this->load->view('normal/footer');
         $this->load->view('normal/fix');
     }
+
+    
 
 }
