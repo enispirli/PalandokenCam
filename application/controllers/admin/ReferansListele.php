@@ -10,8 +10,8 @@ class ReferansListele extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['referanslar'] = $this->database_model->getList("referanslar");
+        $this->load->model('admin/Database_Model');
+        $param['referanslar'] = $this->Database_Model->getList("referanslar");
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/referans_listele', $param);
@@ -19,8 +19,8 @@ class ReferansListele extends CI_Controller {
     }
     //$id silinen kategorinin idsi
     public function sil($id) {
-            $this->load->model('admin/database_model');
-            $this->database_model->delete("referanslar", $id);
+            $this->load->model('admin/Database_Model');
+            $this->Database_Model->delete("referanslar", $id);
             $this->session->set_flashdata("sonuc", "Referans silme işlemi başarıyla tamamlandı");
             $this->session->set_flashdata("error", false);
             redirect(base_url() . "admin/ReferansListele");
@@ -28,8 +28,8 @@ class ReferansListele extends CI_Controller {
     }
 
     public function duzenle($id) {
-        $this->load->model('admin/database_model');
-        $param['referans'] = $this->database_model->get("referanslar", $id)[0];
+        $this->load->model('admin/Database_Model');
+        $param['referans'] = $this->Database_Model->get("referanslar", $id)[0];
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/referans_duzenle', $param);
@@ -37,14 +37,14 @@ class ReferansListele extends CI_Controller {
     }
 
     public function guncelle() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array(
            'id' => $this->input->post('referansId'),
             'isim' => $this->input->post('referansIsim'),
             'icerik' => $this->input->post('referansIcerik'),
             'yol'=>$this->input->post('referansYol')
         );
-        $this->database_model->update("referanslar", $data);
+        $this->Database_Model->update("referanslar", $data);
         $this->session->set_flashdata("sonuc", "Referans düzenleme işlemi başarıyla tamamlandı");
         $this->session->set_flashdata("error", false);
         redirect(base_url() . "admin/ReferansListele");

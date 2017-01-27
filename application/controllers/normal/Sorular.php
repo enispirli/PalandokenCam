@@ -11,8 +11,8 @@ class Sorular extends BaseController {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['sorular'] = $this->database_model->getList("sorular");
+        $this->load->model('admin/Database_Model');
+        $param['sorular'] = $this->Database_Model->getList("sorular");
         $this->load->view('normal/navbar');
         $this->load->view('normal/header',$this->headerParam);
         $this->load->view('normal/sorular',$param);

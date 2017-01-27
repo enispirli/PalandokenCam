@@ -11,11 +11,11 @@ class Iletisim extends BaseController {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['iletisim'] = $this->database_model->getByColumn("ayarlar", "isim", "iletisim_icerik")[0];
-        $param['adres'] = $this->database_model->getByColumn("ayarlar", "isim", "adres")[0];
-        $param['mail'] =  $this->database_model->getByColumn("ayarlar", "isim", "mail")[0];
-        $param['tel'] =  $this->database_model->getByColumn("ayarlar", "isim", "tel")[0];
+        $this->load->model('admin/Database_Model');
+        $param['iletisim'] = $this->Database_Model->getByColumn("ayarlar", "isim", "iletisim_icerik")[0];
+        $param['adres'] = $this->Database_Model->getByColumn("ayarlar", "isim", "adres")[0];
+        $param['mail'] =  $this->Database_Model->getByColumn("ayarlar", "isim", "mail")[0];
+        $param['tel'] =  $this->Database_Model->getByColumn("ayarlar", "isim", "tel")[0];
         $this->load->view('normal/navbar');
         $this->load->view('normal/header',$this->headerParam);
         $this->load->view('normal/iletisim',$param);
@@ -24,7 +24,7 @@ class Iletisim extends BaseController {
     }
 
     public function kaydet() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array(
             'ad' => $this->input->post('ad'),
             'soyad' => $this->input->post('soyad'),
@@ -33,7 +33,7 @@ class Iletisim extends BaseController {
             'icerik' => $this->input->post('icerik'),
             'okundu' => false
         ); 
-        $this->database_model->insert_data('mesaj', $data);
+        $this->Database_Model->insert_data('mesaj', $data);
         $this->session->set_flashdata("sonuc", "Mesajınız başarıyla alınmıştır. En kısa zamanda dönüş yapılacaktır.");
         redirect(base_url() . "normal/Iletisim");
     }

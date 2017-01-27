@@ -18,14 +18,14 @@ public function index() {
 }
 
 public function girisyap() {
-    $this->load->model('admin/database_model');
+    $this->load->model('admin/Database_Model');
     $data = array(
        'mail' => $this->input->post('musteriGirisMail'),
        'parola' => $this->input->post('musteriGirisParola')
      );
-     $result = $this->database_model->girisMusteri($data['mail'],$data['parola']);
+     $result = $this->Database_Model->girisMusteri($data['mail'],$data['parola']);
     if ($result == TRUE) {       
-        $result = $this->database_model->getByColumn("musteri","email",$data['mail']);
+        $result = $this->Database_Model->getByColumn("musteri","email",$data['mail']);
         $session_data = array(
             'mail' => $result[0]->email,
             'ad' => $result[0]->ad,

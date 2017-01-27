@@ -11,8 +11,8 @@ class Sertifika extends BaseController {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-         $param['sertifikalar'] = $this->database_model->getList("sertifika");
+        $this->load->model('admin/Database_Model');
+         $param['sertifikalar'] = $this->Database_Model->getList("sertifika");
         $this->load->view('normal/navbar');
         $this->load->view('normal/header',$this->headerParam);
          $this->load->view('normal/leftbarKurumsal');

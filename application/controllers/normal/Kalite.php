@@ -10,8 +10,8 @@ class Kalite extends BaseController {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['kalitemiz'] = $this->database_model->get("ayarlar", 6)[0];
+        $this->load->model('admin/Database_Model');
+        $param['kalitemiz'] = $this->Database_Model->get("ayarlar", 6)[0];
         $this->load->view('normal/navbar');
         $this->load->view('normal/header',$this->headerParam);
          $this->load->view('normal/leftbarKurumsal');

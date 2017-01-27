@@ -17,12 +17,12 @@ class SorularEkle extends CI_Controller {
     }
 
     public function ekle() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array(
             'soru' => $this->input->post('soru'),
             'cevap' => $this->input->post('cevap')
         );
-       $this->database_model->insert_data('sorular', $data);
+       $this->Database_Model->insert_data('sorular', $data);
        $this->session->set_flashdata("sonuc", "Sık sorulan sorulara ekleme işlemi başarıyla tamamlandı");
        redirect(base_url()."admin/SorularEkle");
     }

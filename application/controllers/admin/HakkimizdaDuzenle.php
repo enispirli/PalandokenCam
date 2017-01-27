@@ -9,8 +9,8 @@ class HakkimizdaDuzenle extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['hakkimizda'] = $this->database_model->get("ayarlar", 2)[0];
+        $this->load->model('admin/Database_Model');
+        $param['hakkimizda'] = $this->Database_Model->get("ayarlar", 2)[0];
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/hakkimizda_duzenle', $param);
@@ -18,13 +18,13 @@ class HakkimizdaDuzenle extends CI_Controller {
     }
 
     public function guncelle() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array(
             'id' => $this->input->post('hakkimizdaId'),
             'isim' => $this->input->post('hakkimizdaIsim'),
             'icerik' => $this->input->post('hakkimizdaIcerik'),
         );
-        $this->database_model->update("ayarlar", $data);
+        $this->Database_Model->update("ayarlar", $data);
         $this->session->set_flashdata("sonuc", "Hakkımızda güncelleme işlemi başarıyla tamamlandı");
         redirect(base_url() . "admin/HakkimizdaDuzenle");
     }

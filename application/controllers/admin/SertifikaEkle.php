@@ -9,8 +9,8 @@ class SertifikaEkle extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['sertifika'] = $this->database_model->getList("sertifika");
+        $this->load->model('admin/Database_Model');
+        $param['sertifika'] = $this->Database_Model->getList("sertifika");
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/sertifika_ekle', $param);
@@ -18,7 +18,7 @@ class SertifikaEkle extends CI_Controller {
     }
 
     public function ekle() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array(
             'id' => $this->input->post('sertifikaId'),
             'isim' => $this->input->post('sertifikaIsim'),
@@ -27,7 +27,7 @@ class SertifikaEkle extends CI_Controller {
             'yol'=>$this->input->post('sertifikaYol')
             
         );
-        $this->database_model->insert_data("sertifika", $data);
+        $this->Database_Model->insert_data("sertifika", $data);
         $this->session->set_flashdata("sonuc", "Sertifika ekleme işlemi başarıyla tamamlandı");
         redirect(base_url() . "admin/SertifikaEkle");
     }

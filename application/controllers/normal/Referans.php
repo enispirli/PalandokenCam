@@ -15,8 +15,8 @@ class Referans extends BaseController {
     }
 
     public function index($id) {
-        $this->load->model('admin/database_model');
-        $param['referans'] = $this->database_model->get("referanslar", $id)[0];
+        $this->load->model('admin/Database_Model');
+        $param['referans'] = $this->Database_Model->get("referanslar", $id)[0];
        
         $this->load->view('normal/navbar');
          $this->load->view('normal/header',$this->headerParam);

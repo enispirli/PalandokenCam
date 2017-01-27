@@ -11,8 +11,8 @@ class Hakkimizda extends BaseController {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['hakkimizda'] = $this->database_model->get("ayarlar", 2)[0];
+        $this->load->model('admin/Database_Model');
+        $param['hakkimizda'] = $this->Database_Model->get("ayarlar", 2)[0];
         $this->load->view('normal/navbar');
         $this->load->view('normal/header', $this->headerParam);
           $this->load->view('normal/leftbarKurumsal');

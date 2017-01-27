@@ -10,8 +10,8 @@ class KategoriListele extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['kategoriler'] = $this->database_model->getList("kategori");
+        $this->load->model('admin/Database_Model');
+        $param['kategoriler'] = $this->Database_Model->getList("kategori");
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/kategori_listele', $param);
@@ -19,14 +19,14 @@ class KategoriListele extends CI_Controller {
     }
     //$id silinen kategorinin idsi
     public function sil($id) {
-        $this->load->model('admin/database_model');
-        $urunList = $this->database_model->getByColumn("urun", "kategori_id", $id);
+        $this->load->model('admin/Database_Model');
+        $urunList = $this->Database_Model->getByColumn("urun", "kategori_id", $id);
         if (count($urunList) > 0) {
             $this->session->set_flashdata("sonuc", "Bu kategoriye ait ürün olduğundan dolayı silinemedi");
             $this->session->set_flashdata("error", true);
             redirect(base_url() . "admin/KategoriListele");
         } else {
-            $this->database_model->delete("kategori", $id);
+            $this->Database_Model->delete("kategori", $id);
             $this->session->set_flashdata("sonuc", "Kategori silme işlemi başarıyla tamamlandı");
             $this->session->set_flashdata("error", false);
             redirect(base_url() . "admin/KategoriListele");
@@ -34,8 +34,8 @@ class KategoriListele extends CI_Controller {
     }
 
     public function duzenle($id) {
-        $this->load->model('admin/database_model');
-        $param['kategori'] = $this->database_model->get("kategori", $id)[0];
+        $this->load->model('admin/Database_Model');
+        $param['kategori'] = $this->Database_Model->get("kategori", $id)[0];
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/kategori_duzenle', $param);
@@ -43,12 +43,12 @@ class KategoriListele extends CI_Controller {
     }
 
     public function guncelle() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array(
             'id' => $this->input->post('kategoriId'),
             'isim' => $this->input->post('kategoriAdi')
         );
-        $this->database_model->update("kategori", $data);
+        $this->Database_Model->update("kategori", $data);
         $this->session->set_flashdata("sonuc", "Kategori düzenleme işlemi başarıyla tamamlandı");
         $this->session->set_flashdata("error", false);
         redirect(base_url() . "admin/KategoriListele");

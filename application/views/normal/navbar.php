@@ -51,60 +51,18 @@
             </div>
             <div class="col-md-6" data-animate="fadeInDown">
                 <ul class="menu">
-                     <?php
-                      if (!isset($this->session->userdata['logged_in'])) {
-        
-              ?>
-                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Giriş</a>
-                    </li>
-                     <li><a href="<?= base_url()?>normal/kayitol">Kayıt Ol</a>
-                    </li>
-                      <?php } else{?>  
-                    <li style='color:white;'>Hoşgeldin <b><?=$this->session->userdata['logged_in']['ad'] . " ".$this->session->userdata['logged_in']['soyad'] ?></b>
-                    </li>
-                     <li><a href="<?= base_url()?>normal/giris/cikisyap">Çıkış</a>
-                    </li>
-                      <?php } ?>
+                     
                     <li><a href="<?= base_url()?>normal/Hakkimizda">Hakkımızda</a>      
                     </li>
                     <li><a href="<?= base_url()?>normal/Iletisim">İletişim</a>
                     </li>
                    
-                    <li><a href="<?= base_url()?>normal/Sorular">Sık Sorulan Sorular</a>
+                    
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-
-                <div class="modal-content">
-                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="Login">Müşteri Giriş</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form action="<?= base_url()?>normal/giris/girisyap" method="post">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="musteriGirisMail" placeholder="E-mail">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" name="musteriGirisParola" placeholder="Parola">
-                            </div>
-
-                            <p class="text-center">
-                                <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Giriş Yap</button>
-                            </p>
-
-                        </form>
-                        <p class="text-center">
-                            <a href="<?= base_url()?>normal/kayitol">Kayıt Ol</a>
-                         </p>
-
-                    </div>
+        
                 </div>
-            </div>
-        </div>
-
-    </div>
+          
 

@@ -9,8 +9,8 @@ class IletisimDuzenle extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['iletisim'] = $this->database_model->getByColumn("ayarlar", "isim", "iletisim_icerik")[0];
+        $this->load->model('admin/Database_Model');
+        $param['iletisim'] = $this->Database_Model->getByColumn("ayarlar", "isim", "iletisim_icerik")[0];
         $param['iletisim']->icerik = htmlentities($param['iletisim']->icerik);
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
@@ -19,9 +19,9 @@ class IletisimDuzenle extends CI_Controller {
     }
 
     public function kaydet() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array('id' => $this->input->post('id'), 'icerik' => $this->input->post('iletisim'));
-        $this->database_model->update('ayarlar', $data);
+        $this->Database_Model->update('ayarlar', $data);
         $this->session->set_flashdata("sonuc", "İletişim içeriği başarıyla güncellendi.");
         redirect(base_url() . "admin/IletisimDuzenle");
     }

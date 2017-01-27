@@ -27,11 +27,11 @@ class SirketEkle extends CI_Controller{
     }
     
     public function ekle() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array(
             'ismi' => $this->input->post('sirketAdi')
         );
-        $this->database_model->insert_data('sirket', $data);
+        $this->Database_Model->insert_data('sirket', $data);
         $this->session->set_flashdata("sonuc", "Şirket ekleme işlemi başarıyla tamamlandı");
         redirect(base_url() . "admin/SirketEkle");
     }

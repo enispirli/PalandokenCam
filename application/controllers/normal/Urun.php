@@ -15,10 +15,10 @@ class Urun extends BaseController {
     }
 
     public function index($id) {
-        $this->load->model('admin/database_model');
-        $paramKategori['kategoriler'] = $this->database_model->getList("kategori");
-        $param['urun'] = $this->database_model->get("urun", $id)[0];
-        $param['resimler'] = $this->database_model->getByColumn("resim", "urun_id", $id);
+        $this->load->model('admin/Database_Model');
+        $paramKategori['kategoriler'] = $this->Database_Model->getList("kategori");
+        $param['urun'] = $this->Database_Model->get("urun", $id)[0];
+        $param['resimler'] = $this->Database_Model->getByColumn("resim", "urun_id", $id);
         $this->load->view('normal/navbar');
          $this->load->view('normal/header',$this->headerParam);
         $this->load->view('normal/leftbar', $paramKategori);

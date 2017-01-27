@@ -19,12 +19,12 @@ $this->load->view('admin/giris');
 }
 
 public function girisyap() {
-    $this->load->model('admin/database_model');
+    $this->load->model('admin/Database_Model');
     $data = array(
        'kullaniciadi' => $this->input->post('kullaniciadi'),
        'parola' => $this->input->post('parola')
      );
-     $result = $this->database_model->girisKullanici($data['kullaniciadi'],$data['parola']);
+     $result = $this->Database_Model->girisKullanici($data['kullaniciadi'],$data['parola']);
     if ($result == TRUE) {         
         
       

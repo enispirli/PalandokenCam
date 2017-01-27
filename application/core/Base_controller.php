@@ -22,17 +22,17 @@ class BaseController  extends CI_Controller {
     }
 
     public function getKategoriUrunleri() {
-        $this->load->model("admin/database_model");
-        $kategoriler = $this->database_model->getList('kategori');
+        $this->load->model("admin/Database_Model");
+        $kategoriler = $this->Database_Model->getList('kategori');
         $kategoriUrunleri = array();
         foreach ($kategoriler as $kategori) {
-           $kategoriUrunleri[$kategori->isim] = $this->database_model->getByColumn('urun', 'kategori_id', $kategori->id);
+           $kategoriUrunleri[$kategori->isim] = $this->Database_Model->getByColumn('urun', 'kategori_id', $kategori->id);
         }
         $this->headerParam['kategoriUrunleri'] = $kategoriUrunleri;
     }
     public function getReferanslar(){
-         $this->load->model("admin/database_model");
-          $referanslar = $this->database_model->getList('referanslar');
+         $this->load->model("admin/Database_Model");
+          $referanslar = $this->Database_Model->getList('referanslar');
          $this->headerParam['referanslar'] = $referanslar;
         
     }

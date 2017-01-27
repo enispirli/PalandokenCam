@@ -10,7 +10,7 @@ class SliderEkle extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/slider_ekle');
@@ -19,7 +19,7 @@ class SliderEkle extends CI_Controller {
 
     public function ekle() {
 
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
 
         //resmin config ayarları yapılıyor.
         $config['upload_path'] = './uploads/'; // resmin nere yükleneceği
@@ -46,7 +46,7 @@ class SliderEkle extends CI_Controller {
                     'url' => $this->input->post('sliderUrl'),
                     'resimi' =>$_FILES['userfile']['name']
                 );
-                $this->database_model->insert_data('slider', $data);
+                $this->Database_Model->insert_data('slider', $data);
             } else {
                 // hata aldı
                 $this->session->set_flashdata("sonuc", $this->upload->display_errors());

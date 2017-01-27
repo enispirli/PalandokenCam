@@ -10,8 +10,8 @@ class UrunEkle extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['kategoriler'] = $this->database_model->getList("kategori");
+        $this->load->model('admin/Database_Model');
+        $param['kategoriler'] = $this->Database_Model->getList("kategori");
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/urun_ekle', $param);
@@ -20,14 +20,14 @@ class UrunEkle extends CI_Controller {
 
     public function ekle() {
 
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array(
             'ismi' => $this->input->post('urunAdi'),
             'aciklama' => $this->input->post('urunAciklama'),
             'kategori_id' => $this->input->post('urunKategori')
         );
-        $this->database_model->insert_data('urun', $data);
-        $dataUrun = $this->database_model->getByColumn('urun', 'ismi', $data['ismi'])[0];
+        $this->Database_Model->insert_data('urun', $data);
+        $dataUrun = $this->Database_Model->getByColumn('urun', 'ismi', $data['ismi'])[0];
         //resmin config ayarları yapılıyor.
         $config['upload_path'] = './uploads/'; // resmin nere yükleneceği
         $config['allowed_types'] = 'jpg|png|jpeg'; // hangi dosya uzantıları kabul edilecek
@@ -51,7 +51,7 @@ class UrunEkle extends CI_Controller {
                 $dataResim = array(
                     'yol' => $_FILES['userfile']['name'],
                     'urun_id' => $dataUrun->id);
-                $this->database_model->insert_data('resim', $dataResim);
+                $this->Database_Model->insert_data('resim', $dataResim);
             } else {
                 // hata aldı
                 $this->session->set_flashdata("sonuc", $this->upload->display_errors());

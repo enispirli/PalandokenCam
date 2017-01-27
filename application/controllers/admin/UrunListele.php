@@ -11,9 +11,9 @@ class UrunListele extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['urunler'] = $this->database_model->getList("urun");
-        $kategoriler = $this->database_model->getList("kategori");
+        $this->load->model('admin/Database_Model');
+        $param['urunler'] = $this->Database_Model->getList("urun");
+        $kategoriler = $this->Database_Model->getList("kategori");
         $kategoriArray = [];
         foreach ($kategoriler as $kategori) {
             $kategoriArray[$kategori->id] = $kategori->isim;
@@ -26,16 +26,16 @@ class UrunListele extends CI_Controller {
     }
 
     public function sil($id) {
-        $this->load->model('admin/database_model');
-        $this->database_model->delete("urun", $id);
+        $this->load->model('admin/Database_Model');
+        $this->Database_Model->delete("urun", $id);
         $this->session->set_flashdata("sonuc", "Ürün silme işlemi başarıyla tamamlandı");
         redirect(base_url() . "admin/UrunListele");
     }
 
     public function duzenle($id) {
-        $this->load->model('admin/database_model');
-        $param['urun'] = $this->database_model->get("urun", $id)[0];
-        $param['kategoriler'] = $this->database_model->getList("kategori");
+        $this->load->model('admin/Database_Model');
+        $param['urun'] = $this->Database_Model->get("urun", $id)[0];
+        $param['kategoriler'] = $this->Database_Model->getList("kategori");
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/urun_duzenle', $param);
@@ -43,14 +43,14 @@ class UrunListele extends CI_Controller {
     }
 
     public function guncelle() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array(
             'id' => $this->input->post('urunId'),
             'ismi' => $this->input->post('urunAdi'),
             'aciklama' => $this->input->post('urunAciklama'),
             'kategori_id' => $this->input->post('urunKategori')
         );
-        $this->database_model->update("urun", $data);
+        $this->Database_Model->update("urun", $data);
         $this->session->set_flashdata("sonuc", "Ürün güncelleme işlemi başarıyla tamamlandı");
         redirect(base_url() . "admin/UrunListele");
     }

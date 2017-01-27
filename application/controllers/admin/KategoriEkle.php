@@ -17,11 +17,11 @@ class KategoriEkle extends CI_Controller {
     }
 
     public function ekle() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array(
             'isim' => $this->input->post('kategoriAdi')
         );
-       $this->database_model->insert_data('kategori', $data);
+       $this->Database_Model->insert_data('kategori', $data);
        $this->session->set_flashdata("sonuc", "Kategori ekleme işlemi başarıyla tamamlandı");
        redirect(base_url()."admin/KategoriEkle");
     }

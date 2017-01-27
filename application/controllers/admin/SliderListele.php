@@ -10,8 +10,8 @@ class SliderListele extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['sliderlar'] = $this->database_model->getList("slider");
+        $this->load->model('admin/Database_Model');
+        $param['sliderlar'] = $this->Database_Model->getList("slider");
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/slider_listele', $param);
@@ -19,16 +19,16 @@ class SliderListele extends CI_Controller {
     }
 
     public function sil($id) {
-        $this->load->model('admin/database_model');
-        $this->database_model->delete("slider", $id);
+        $this->load->model('admin/Database_Model');
+        $this->Database_Model->delete("slider", $id);
         $this->session->set_flashdata("error", false);
         $this->session->set_flashdata("sonuc", "Slider silme işlemi başarıyla tamamlandı");
         redirect(base_url() . "admin/SliderListele");        
     }
 
     public function duzenle($id) {
-        $this->load->model('admin/database_model');
-        $param['slider'] = $this->database_model->get("slider", $id)[0];
+        $this->load->model('admin/Database_Model');
+        $param['slider'] = $this->Database_Model->get("slider", $id)[0];
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/slider_duzenle', $param);
@@ -36,7 +36,7 @@ class SliderListele extends CI_Controller {
     }
 
     public function guncelle() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         //resmin config ayarları yapılıyor.
         $config['upload_path'] = './uploads/'; // resmin nere yükleneceği
         $config['allowed_types'] = 'jpg|png|jpeg'; // hangi dosya uzantıları kabul edilecek
@@ -65,7 +65,7 @@ class SliderListele extends CI_Controller {
                 );
               
                 $this->session->set_flashdata("sonuc", "Slider düzenleme işlemi başarıyla tamamlandı");
-                $this->database_model->update("slider", $data);
+                $this->Database_Model->update("slider", $data);
                 $this->session->set_flashdata("error", false);
                  redirect(base_url() . "admin/SliderListele");
                 } else {

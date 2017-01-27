@@ -10,8 +10,8 @@ class SertifikaListele extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('admin/database_model');
-        $param['sertifikalar'] = $this->database_model->getList("sertifika");
+        $this->load->model('admin/Database_Model');
+        $param['sertifikalar'] = $this->Database_Model->getList("sertifika");
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/sertifika_listele', $param);
@@ -19,8 +19,8 @@ class SertifikaListele extends CI_Controller {
     }
     //$id silinen kategorinin idsi
     public function sil($id) {
-            $this->load->model('admin/database_model');
-            $this->database_model->delete("sertifika", $id);
+            $this->load->model('admin/Database_Model');
+            $this->Database_Model->delete("sertifika", $id);
             $this->session->set_flashdata("sonuc", "Sertifika silme işlemi başarıyla tamamlandı");
             $this->session->set_flashdata("error", false);
             redirect(base_url() . "admin/SertifikaListele");
@@ -28,8 +28,8 @@ class SertifikaListele extends CI_Controller {
     }
 
     public function duzenle($id) {
-        $this->load->model('admin/database_model');
-        $param['sertifika'] = $this->database_model->get("sertifika", $id)[0];
+        $this->load->model('admin/Database_Model');
+        $param['sertifika'] = $this->Database_Model->get("sertifika", $id)[0];
         $this->load->view('admin/navbar');
         $this->load->view('admin/side_bar');
         $this->load->view('admin/sertifika_duzenle', $param);
@@ -37,7 +37,7 @@ class SertifikaListele extends CI_Controller {
     }
 
     public function guncelle() {
-        $this->load->model('admin/database_model');
+        $this->load->model('admin/Database_Model');
         $data = array(
            'id' => $this->input->post('sertifikaId'),
             'isim' => $this->input->post('sertifikaIsim'),
@@ -45,7 +45,7 @@ class SertifikaListele extends CI_Controller {
             'dosya_ismi'=>$this->input->post('sertifikaDosya'),
             'yol'=>$this->input->post('sertifikaYol')
         );
-        $this->database_model->update("sertifika", $data);
+        $this->Database_Model->update("sertifika", $data);
         $this->session->set_flashdata("sonuc", "Sertifika düzenleme işlemi başarıyla tamamlandı");
         $this->session->set_flashdata("error", false);
         redirect(base_url() . "admin/SertifikaListele");
