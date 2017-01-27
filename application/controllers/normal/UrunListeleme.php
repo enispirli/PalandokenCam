@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class UrunListeleme extends BaseController {
+class UrunListeleme extends Base_Controller {
 
 	 function _construct()
 	{

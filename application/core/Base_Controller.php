@@ -11,7 +11,7 @@
  *
  * @author gurha
  */
-class BaseController  extends CI_Controller {
+class Base_Controller  extends CI_Controller {
 
     protected $headerParam = [];
 

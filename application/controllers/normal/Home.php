@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends BaseController {
+class Home extends Base_Controller {
 
     function _construct() {
         parent::_construct();
