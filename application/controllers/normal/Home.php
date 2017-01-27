@@ -12,8 +12,7 @@ class Home extends BaseController {
     public function index() {
         $this->load->model('admin/database_model');
         $param['sliderlar'] = $this->database_model->getList("slider");
-        $param['urunler'] = $this->database_model->db->query("select u.id, u.ismi, r.yol from urun u, resim r where r.urun_id=u.id && u.kategori_id=? GROUP BY u.id", $kid)->result();
-        $param['urunler'] = $this->database_model->getList("urun");
+        $param['urunler'] = $this->database_model->db->query("select u.id, u.ismi, r.yol from urun u, resim r where r.urun_id=u.id GROUP BY u.id LIMIT 8")->result();
         $this->load->view('normal/navbar');
         $this->load->view('normal/header', $this->headerParam);
         $this->load->view('normal/content', $param);
