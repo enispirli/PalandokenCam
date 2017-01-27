@@ -68,6 +68,16 @@
 
             </ul>
         </li>
+         <li class="accordion-group ">
+            <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#referans-nav">
+              Referans İşlemleri
+            </a>
+            <ul class="collapse " id="referans-nav">
+                <li><a href="<?= base_url() ?>admin/ReferansListele">Listele</a></li>
+                <li><a href="<?= base_url() ?>admin/ReferansEkle">Ekleme</a></li>
+
+            </ul>
+        </li>
         <li class="accordion-group active">
             <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#ayarlar-nav">
                 Ayarlar

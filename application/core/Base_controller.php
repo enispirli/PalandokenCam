@@ -18,6 +18,7 @@ class BaseController  extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->getKategoriUrunleri();
+        $this->getReferanslar();
     }
 
     public function getKategoriUrunleri() {
@@ -28,6 +29,12 @@ class BaseController  extends CI_Controller {
            $kategoriUrunleri[$kategori->isim] = $this->database_model->getByColumn('urun', 'kategori_id', $kategori->id);
         }
         $this->headerParam['kategoriUrunleri'] = $kategoriUrunleri;
+    }
+    public function getReferanslar(){
+         $this->load->model("admin/database_model");
+          $referanslar = $this->database_model->getList('referanslar');
+         $this->headerParam['referanslar'] = $referanslar;
+        
     }
 
 }

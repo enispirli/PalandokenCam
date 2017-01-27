@@ -15,8 +15,7 @@
                             <li>
                                 <div class="yamm-content">
                                     <div class="row">
-                                        <?php 
-                                        while ($kategori = key($kategoriUrunleri)) { ?>
+                                        <?php while ($kategori = key($kategoriUrunleri)) { ?>
                                             <div class="col-sm-5">
                                                 <h5><?= $kategori ?></h5>
                                                 <ul>
@@ -47,21 +46,38 @@
                                                 </li>
                                                 <li><a href="<?= base_url() ?>normal/Sertifika">Sertifikalarımız</a>
                                                 </li>
-                                                <li><a href="<?=base_url()?>normal/Kalite">Kalite Politikamız</a>
+                                                <li><a href="<?= base_url() ?>normal/Kalite">Kalite Politikamız</a>
                                                 </li>
 
 
-                                          </ul>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">REFERANSLAR</a>
-
+                    <li class="dropdown yamm-fw">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">REFERANSLAR <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width: 300px;  margin-left: 270px"  >
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <ul>
+                                                <li>
+                                                    <?php foreach ($referanslar as $referans) { ?>
+                                                        <a href="<?= base_url() ?>normal/Referans/<?= $referans->id ?>"><?= $referans->isim ?></a>
+                                                    <?php } ?>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </li>
+
                     <li >
                         <a href="<?= base_url() ?>normal/Iletisim" >İLETİŞİM </a>
 
