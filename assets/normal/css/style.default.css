@@ -166,7 +166,7 @@ h1 {
   clear: both;
 }
 #hot .product-slider .item {
-  margin: 0 25px;
+  margin: 0 15px;
   visibility: hidden;
 }
 #hot .product-slider .owl-controls {
@@ -467,6 +467,7 @@ h1 {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin-bottom: 30px;
+  height: 250px;
   /* entire container, keeps perspective */
   /* flip speed goes here */
   /* hide back of pane during swap */
@@ -552,7 +553,7 @@ h1 {
   }
 }
 #content .product .text {
-  padding: 10px 10px 0;
+  
 }
 #content .product .text h3 {
   font-size: 18px;
@@ -998,8 +999,7 @@ h1 {
   }
 }
 .yamm .dropdown.yamm-fw .dropdown-menu {
-  left: 0;
-  right: 0;
+
 }
 /* Original Boostrap template overwrite */
 /* nav */
@@ -1077,7 +1077,7 @@ h1 {
 .navbar {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   min-height: 70px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   border: none;
   border-bottom: 1px solid transparent;
 }
@@ -1670,3 +1670,21 @@ address {
   text-decoration: none;
 }
 .urun-liste{width: 254px; height: 242px;}
+
+
+#main-slider .owl-item .item img {
+height: 520px;
+display: block;
+width: 100%;
+}
+
+
+#hot .product .flipper img,#hot .product  a img {
+height: 190px;
+display: block;
+width: 100%;
+}
+
+.referans-image img{
+    width: 100%;
+    height: 400px;}

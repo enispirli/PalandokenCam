@@ -59,7 +59,7 @@
                             <input type="text" class="form-control" id="soyad" name="soyad">
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                  
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -83,7 +83,7 @@
                             <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Mesaj Gönder</button>
 
                         </div>
-                    </div>
+                    
                     <!-- /.row -->
             </form>
 

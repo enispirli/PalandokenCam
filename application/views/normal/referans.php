@@ -5,7 +5,7 @@
 
     <div class="row" id="productMain">
         <div class="col-sm-12">
-            <div id="mainImage">
+            <div id="mainImage" class="referans-image">
                 <img src="<?= base_url() ?>uploads/<?=$referans->yol?>" alt="" class="img-responsive">
             </div>
 
