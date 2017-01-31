@@ -3,16 +3,22 @@
     <div class="navbar navbar-default yamm" role="navigation" id="navbar">
         <div class="container">
 
-            <!--/.navbar-header 
+            <!--/.navbar-header  -->
               <div class="navbar-header">
-
+                  <!--
                 <a class="navbar-brand home" href="index.html" data-animate-hover="bounce">
                     <img src="<?= base_url() ?>uploads/logo.jpeg" alt="Obaju logo" class="hidden-xs">
                     <img src="img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
                 </a>
-                
+                -->
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
             </div>
-         -->
+        
 
             <div class="navbar-collapse collapse" id="navigation">
 
