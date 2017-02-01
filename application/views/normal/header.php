@@ -29,10 +29,10 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">ÜRÜNLER <b class="caret"></b></a>
                         <ul class="dropdown-menu" >
                             <li>
-                                <div class="yamm-content" style="width:1100px">
-                                    <div class="row" style= border: solid 2px #cccccc; width:452px; height:auto; float:left; ">
+                                <div class="yamm-content"style="width:auto" >
+                                    <div class="row" style="border: solid 2px #cccccc;  height:auto; ">
                                         <?php while ($kategori = key($kategoriUrunleri)) { ?>
-                                            <div class="col-sm-5" style="width:225px; height:auto; border-right: 2px solid #FFFFFF; float:left;">
+                                            <div class="col-sm-5" style="width:auto; height:auto; border-right: 4px solid #FFFFFF; float:left;">
                                                 <h5><?= $kategori ?></h5>
                                                 <ul>
                                                     <?php foreach (current($kategoriUrunleri) as $urun) { ?>
