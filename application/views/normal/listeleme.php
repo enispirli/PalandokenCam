@@ -29,10 +29,6 @@
                                 <div class="text">
                                     <h3><a href="<?=base_url()?>normal/urun/<?= $urun->id ?>"><?= $urun->ismi ?></a></h3>
                                    
-                                    <p class="buttons">
-                                        <a href="<?=base_url()?>normal/urun/<?= $urun->id ?>" class="btn btn-default">Göster</a>
-                                        
-                                    </p>
                                 </div>
                                 <!-- /.text -->
                             </div>
