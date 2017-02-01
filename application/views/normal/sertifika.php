@@ -7,7 +7,7 @@
     <div class="row" id="productMain">
         <div class="col-sm-12">
             <div id="mainImage">
-                <img src="<?= base_url() ?>uploads/sertifikalarimiz-2.jpg" alt="" class="img-responsive">
+                <img src="<?= base_url() ?>uploads/logop.jpg" alt="" class="img-responsive">
             </div>
 
 
@@ -25,9 +25,11 @@
                 <p>
                     <a href="<?= base_url() ?>uploads/<?=$sertifika->dosya_ismi?>">
                         <img src="<?= base_url() ?>uploads/<?=$sertifika->yol?>"> &nbsp; &nbsp; &nbsp;
-                    <?=$sertifika->isim?>
+                         <?=$sertifika->isim?>
+                        
                 </a>
             </p>
+            <hr style="border-color: gray">
 
             <?php } ?>
         </div>
@@ -44,6 +46,7 @@
             </p>
         </div>
     </div>
+
 
 
 </div>
