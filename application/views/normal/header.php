@@ -25,14 +25,14 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li class="active"><a href="<?= base_url() ?>normal/Home">ANASAYFA</a>
                     </li>
-                    <li class="dropdown yamm-fw">
+                    <li class="dropdown yamm-fw" >
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">ÜRÜNLER <b class="caret"></b></a>
                         <ul class="dropdown-menu" >
                             <li>
-                                <div class="yamm-content">
-                                    <div class="row">
+                                <div class="yamm-content" style="width:1100px">
+                                    <div class="row" style= border: solid 2px #cccccc; width:452px; height:auto; float:left; ">
                                         <?php while ($kategori = key($kategoriUrunleri)) { ?>
-                                            <div class="col-sm-5">
+                                            <div class="col-sm-5" style="width:225px; height:auto; border-right: 2px solid #FFFFFF; float:left;">
                                                 <h5><?= $kategori ?></h5>
                                                 <ul>
                                                     <?php foreach (current($kategoriUrunleri) as $urun) { ?>
