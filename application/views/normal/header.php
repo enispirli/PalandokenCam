@@ -4,13 +4,14 @@
         <div class="container">
 
             <!--/.navbar-header  -->
+            
               <div class="navbar-header">
-                  <!--
+               <!--
                 <a class="navbar-brand home" href="index.html" data-animate-hover="bounce">
-                    <img src="<?= base_url() ?>uploads/logo.jpeg" alt="Obaju logo" class="hidden-xs">
-                    <img src="img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
+                    <img src="#" alt="Palandöken logo" class="hidden-xs">
+                    <img src="#" alt="Palandöken logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
                 </a>
-                -->
+              -->
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -49,7 +50,7 @@
 
                         </ul> 
                     </li>
-                    <li class="dropdown yamm-fw">
+                    <li class="dropdown yamm-fw" >
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50">KURUMSAL <b class="caret"></b></a>
                         <ul class="dropdown-menu" style="width: 250px;  "  >
                             <li>
