@@ -23,19 +23,6 @@ class Iletisim extends Base_Controller {
         $this->load->view('normal/fix');
     }
 
-    public function kaydet() {
-        $this->load->model('admin/Database_Model');
-        $data = array(
-            'ad' => $this->input->post('ad'),
-            'soyad' => $this->input->post('soyad'),
-            'email' => $this->input->post('email'),
-            'konu' => $this->input->post('konu'),
-            'icerik' => $this->input->post('icerik'),
-            'okundu' => false
-        ); 
-        $this->Database_Model->insert_data('mesaj', $data);
-        $this->session->set_flashdata("sonuc", "Mesajınız başarıyla alınmıştır. En kısa zamanda dönüş yapılacaktır.");
-        redirect(base_url() . "normal/Iletisim");
-    }
+    
 
 }

@@ -97,8 +97,13 @@
                         </ul>
                     </li>
 
-                    <li >
+                    <li>
                         <a href="<?= base_url() ?>normal/Iletisim" >İLETİŞİM </a>
+
+
+                    </li>
+                    <li >
+                        <a href="<?= base_url() ?>normal/Siparis" >SİPARİŞ </a>
 
 
                     </li>

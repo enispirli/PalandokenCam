@@ -43,46 +43,7 @@
                 </div>
             <?php } ?>
             <hr>
-            <h2>İletişim Formu</h2>
-
-            <form action="<?= base_url() ?>normal/Iletisim/kaydet" method="post">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="ad">Ad</label>
-                            <input type="text" class="form-control" id="ad" name="ad">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="soyad">Soyad</label>
-                            <input type="text" class="form-control" id="soyad" name="soyad">
-                        </div>
-                    </div>
-                  
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" name="email">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="konu">Konu</label>
-                                <input type="text" class="form-control" id="konu" name="konu">
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="icerik">İçerik</label>
-                                <textarea id="icerik" class="form-control" rows=5"" name="icerik"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 text-center">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Mesaj Gönder</button>
-
-                        </div>
+            
                     
                     <!-- /.row -->
             </form>
