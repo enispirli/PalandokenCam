@@ -27,7 +27,7 @@
     <link href="<?=base_url()?>assets/normal/css/owl.theme.css" rel="stylesheet">
 
     <!-- theme stylesheet -->
-    <link href="<?=base_url()?>assets/normal/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+    <link href="<?=base_url()?>assets/normal/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
 
     <!-- your stylesheet with modifications -->
     <link href="<?=base_url()?>assets/normal/css/custom.css" rel="stylesheet">
