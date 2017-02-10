@@ -28,30 +28,38 @@ class Siparis extends Base_Controller {
             'siparis_icerik' => $this->input->post('siparis_icerik'),
         );
         $email = $this->input->post('email');
-        
+
         if (empty($email)) {
             $this->session->set_flashdata("sonuc", "Email Bos Bırakılamaz");
             redirect(base_url() . "normal/Siparis");
             return;
         }
-        
-       
 
-        $this->Database_Model->insert_data('siparis', $data);
 
-        $datasiparis = $this->Database_Model->getByColumn('siparis', 'email', $data['email'])[0];
 
+//        $this->Database_Model->insert_data('siparis', $data);
+//        $datasiparis = $this->Database_Model->getByColumn('siparis', 'email', $data['email'])[0];
         //resmin config ayarları yapılıyor.
         $config['upload_path'] = './uploads/'; // resmin nere yükleneceği
         $config['allowed_types'] = 'jpg|png|jpeg'; // hangi dosya uzantıları kabul edilecek
         $config['max_size'] = '400';
 
-        //initialize upload class
+//        initialize upload class
+        $this->load->library('email');
+        $this->email->initialize($config); //sunucu bilgilerini email kütüphanesine gönderdik
         $this->load->library('upload', $config);
-
+        $isim = ($this->input->post('ad') . $this->input->post('soyad'));
+        $this->email->from("palandokencam@yandex.com", "Palandöken Cam"); //mail gönderen bilgileri
+        $this->email->to("info@palandokencam.com"); //formdan gelen mail alıcı bilgileri
+        $this->email->subject($data["sirket"] . '- ' . $data["ad"] . ' ' . $data["soyad"] . ' Sipariş Hakkında.'); //Formdan gelen mail konusu
+        $this->email->message('<b>Şirket: </b>' . $data["sirket"] . ' <br /><br />'
+                . '<b>Ad Soyad:</b> ' . $data["ad"] . '  ' . $data["soyad"] . ' <br /><br />'
+                . '<b>Email:</b> ' . $data["email"] . '<br /><br />'
+                . $data["siparis_icerik"]); //Formdan gelen mail içeriği
 
         for ($i = 0; $i < count($_FILES['usr_files']['name']); $i++) {
-            $_FILES['userfile']['name'] = $datasiparis->id . "_" . $_FILES['usr_files']['name'][$i];
+
+            $_FILES['userfile']['name'] = "1" . "_" . $_FILES['usr_files']['name'][$i];
             $_FILES['userfile']['type'] = $_FILES['usr_files']['type'][$i];
             $_FILES['userfile']['tmp_name'] = $_FILES['usr_files']['tmp_name'][$i];
             $_FILES['userfile']['error'] = $_FILES['usr_files']['error'][$i];
@@ -64,25 +72,8 @@ class Siparis extends Base_Controller {
                 $dataResim = array(
                     'yol' => $_FILES['userfile']['name'],
                     'siparis_id' => $datasiparis->id);
-                $this->Database_Model->insert_data('siparisresim', $dataResim);
-
-                $this->load->library('email');
-                $this->email->initialize($config); //sunucu bilgilerini email kütüphanesine gönderdik
-
-                $isim = ($this->input->post('ad') . $this->input->post('soyad'));
-                $this->email->from("grhn25@gmail.com", "dasd"); //mail gönderen bilgileri
-                $this->email->to("en.ispirli@gmail.com"); //formdan gelen mail alıcı bilgileri
-                $this->email->subject("sda"); //Formdan gelen mail konusu
-                $this->email->message("sadsa"); //Formdan gelen mail içeriği
-                $send = $this->email->send();
-                if ($send) {
-                    $this->session->set_flashdata("sonuc", "Siparişiniz başarıyla alınmıştır. En kısa zamanda dönüş yapılacaktır.");
-                    redirect(base_url() . "normal/Siparis");
-                    return;
-                }
-                
-                $this->session->set_flashdata("sonuc", $this->email->print_debugger());
-                redirect(base_url() . "normal/Siparis");
+//                $this->Database_Model->insert_data('siparisresim', $dataResim);
+                $this->email->attach("./uploads/" . $_FILES['userfile']['name']);
             } else {
                 // hata aldı
                 $this->session->set_flashdata("sonuc", $this->upload->display_errors());
@@ -90,6 +81,16 @@ class Siparis extends Base_Controller {
                 return;
             }
         }
+
+        $send = $this->email->send();
+        if ($send) {
+            $this->session->set_flashdata("sonuc", "Siparişiniz başarıyla alınmıştır. En kısa zamanda dönüş yapılacaktır.");
+            redirect(base_url() . "normal/Siparis");
+            return;
+        }
+
+        $this->session->set_flashdata("sonuc", "dasdas" . $this->email->print_debugger());
+        redirect(base_url() . "normal/Siparis");
     }
 
 }
