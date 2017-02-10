@@ -7,3 +7,5 @@
 !*/cache/.htaccess
 
 uploads/
+
+application/config/email\.php
