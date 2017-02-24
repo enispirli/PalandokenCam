@@ -11,7 +11,8 @@ class Siparis extends Base_Controller {
     }
 
     public function index() {
-        $this->load->view('normal/navbar');
+        
+        $this->load->view('normal/navbar',$this->getNavbarParam());
         $this->load->view('normal/header', $this->headerParam);
         $this->load->view('normal/siparis');
         $this->load->view('normal/footer');
@@ -93,4 +94,16 @@ class Siparis extends Base_Controller {
         redirect(base_url() . "normal/Siparis");
     }
 
+      public function getNavbarParam() {
+        $navbarParam['title'] = "Sipariş";
+        return $navbarParam;
+    }
+
+    public function getParam() {
+        $param['iletisim'] = $this->Database_Model->getByColumn("ayarlar", "isim", "iletisim_icerik")[0];
+        $param['adres'] = $this->Database_Model->getByColumn("ayarlar", "isim", "adres")[0];
+        $param['mail'] = $this->Database_Model->getByColumn("ayarlar", "isim", "mail")[0];
+        $param['tel'] = $this->Database_Model->getByColumn("ayarlar", "isim", "tel")[0];
+        return $param;
+    }
 }

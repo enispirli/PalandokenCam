@@ -9,3 +9,5 @@
 uploads/
 
 application/config/email\.php
+
+nbproject/private/private\.xml
